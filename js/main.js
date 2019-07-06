@@ -36,5 +36,37 @@ $(function(){
       value : Math.floor((Math.random() * 99) + 1)
     });
 
+    
+    getLocation();
+
 
 });
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
+function showPosition(position) {
+ var latlong = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude; 
+
+  console.log(latlong);
+  $.ajax({
+    url: 'https://api.airvisual.com/v2/nearest_city?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&key=98fbbc6e-b0ec-40a5-952f-fb55fffea363',
+    type: 'GET',
+    success: function(data) {
+      console.log(data);
+      $('.weather-info').html('<ons-row><ons-col><img src="https://d25jl8yaav4s0u.cloudfront.net/images/'+data.data.current.weather.ic+'.png" class="rounded-icon" width="48px"></ons-col><ons-col><div>Temperature</div><div>'+data.data.current.weather.tp+'&#8451;</div></ons-col><ons-col><div>Humidity</div><div>'+data.data.current.weather.hu+'</div></ons-col><ons-col><div>US AQI</div><div>'+data.data.current.pollution.aqius+'</div></ons-col></ons-row>')
+      $('.w-location').text(data.data.city+", "+data.data.state+", "+data.data.country);
+    },
+    error: function(e) {
+    //called when there is an error
+    console.log(e.message);
+    }
+  });
+
+}

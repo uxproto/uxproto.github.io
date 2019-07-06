@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Fevi">
+    <link rel="apple-touch-icon" href="/img/Icon-152.png">
+    <link rel="apple-touch-startup-image" href="/launch.png">
+
+
+  <link rel="stylesheet" href="./css/onsenui.css">
+  <link rel="stylesheet" href="./css/onsen-css-components.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/onsenui.min.js"></script>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  <script src="./js/main.js"></script>
+</head>
+<body>
+  
+    <ons-page id="main-page">
+      
+        <ons-tabbar swipeable position="auto">
+          <ons-tab page="tab1.html" label="Dashboard" icon="ion-speedometer, material:md-home" active>
+          </ons-tab>
+          <ons-tab page="tab2.html" label="PEF" icon="ion-ios-pulse" active-icon="ion-ios-pulse">
+          </ons-tab>
+          <ons-tab page="tab2.html" label="To Do" icon="ion-ios-checkmark-outline"  badge="7" active-icon="md-face">
+          </ons-tab>
+          <ons-tab page="tab2.html" label="Triggers" icon="ion-flash" active-icon="md-face">
+          </ons-tab>
+          <ons-tab page="tab2.html" label="Profile" icon="ion-ios-person" active-icon="ion-ios-person">
+          </ons-tab>
+        </ons-tabbar>
+      </ons-page>
+      
+      <template id="tab1.html">
+        <ons-page id="dashboard-page">
+            <div style="padding:15px; font-family: Helvetica, sans-serif;">
+                <h4>Welcome Kiran,</h4>
+                <h1>Your asthma is under control.</h1>
+            </div>
+            <ons-card onclick="fn.pushPage({'id': 'pullHook.html', 'title': 'PullHook'})">
+                <div class="title">Pull Hook</div>
+                <div class="content">Simple "pull to refresh" functionality to update data.</div>
+            </ons-card>
+        </ons-page>
+      </template>
+      
+      <template id="tab2.html">
+        <ons-page id="todo-page">
+          <p style="text-align: center;">
+            This is the second page.
+          </p>
+        </ons-page>
+      </template>
+
+</body>
+</html>

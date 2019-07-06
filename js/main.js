@@ -1,4 +1,5 @@
 $(function(){
+
     // Initialization code
     $('ons-button').on('click', function(e) {
       ons.notification.alert('Button is tapped!');
@@ -8,9 +9,35 @@ $(function(){
     document.addEventListener('init', function(event) {
         console.log('This is a lifecycle event!', event.target);
       
+        
         var page = event.target;
         if (page.matches('#dashboard-page')) {
           $('#main-page ons-toolbar .center').text('Fevi');
+        }else if(page.matches('#pef-page')){
+          var pefData = [130, 100, 150, 210, 200, 300, 450];
+          var ctx = document.getElementById('myChart').getContext('2d');
+          var chart = new Chart(ctx, {
+              // The type of chart we want to create
+              type: 'line',
+
+              // The data for our dataset
+              data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                  datasets: [{
+                      label: 'Peak Expiratory Flow',
+                      backgroundColor: '#043a91',
+                      borderColor: '#023761',
+                      data: pefData
+                  }]
+              },
+
+              // Configuration options go here
+              options: {}
+          });
+          $.each(pefData,function(i,v){
+            console.log('working')
+            $('#pef-page .page__content').append('<ons-card><div class="title">Today</div><div class="content">'+v+'</div></ons-card>');
+          });
         }
     });
 
@@ -37,7 +64,10 @@ $(function(){
     });
 
     
-    getLocation();
+    //getLocation();
+
+
+    
 
 
 });

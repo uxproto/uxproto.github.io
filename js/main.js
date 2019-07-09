@@ -38,6 +38,31 @@ $(function(){
             console.log('working')
             $('#pef-page .page__content').append('<ons-card><div class="title">Today</div><div class="content">'+v+'</div></ons-card>');
           });
+        }else if(page.matches('#progress-page')){
+          var pefData = [130, 100, 150, 210, 200, 300, 450];
+          var ctx = document.getElementById('myChart1').getContext('2d');
+          var chart = new Chart(ctx, {
+              // The type of chart we want to create
+              type: 'line',
+
+              // The data for our dataset
+              data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                  datasets: [{
+                      label: 'Your Progress',
+                      backgroundColor: '#043a91',
+                      borderColor: '#023761',
+                      data: pefData
+                  }]
+              },
+
+              // Configuration options go here
+              options: {}
+          });
+          $.each(pefData,function(i,v){
+            console.log('working')
+            $('#progress-page .page__content').append('<ons-card><div class="title">Today</div><div class="content">'+v+'</div></ons-card>');
+          });
         }
     });
 
@@ -60,11 +85,11 @@ $(function(){
 
     });
     $('.js-gauge--1').kumaGauge('update', {
-      value : Math.floor((Math.random() * 99) + 1)
+      value : 27
     });
 
     
-    //getLocation();
+    getLocation();
 
 
     
@@ -90,7 +115,7 @@ function showPosition(position) {
     type: 'GET',
     success: function(data) {
       console.log(data);
-      $('.weather-info').html('<ons-row><ons-col><img src="https://d25jl8yaav4s0u.cloudfront.net/images/'+data.data.current.weather.ic+'.png" class="rounded-icon" width="48px"></ons-col><ons-col><div>Temperature</div><div>'+data.data.current.weather.tp+'&#8451;</div></ons-col><ons-col><div>Humidity</div><div>'+data.data.current.weather.hu+'</div></ons-col><ons-col><div>US AQI</div><div>'+data.data.current.pollution.aqius+'</div></ons-col></ons-row>')
+      $('.weather-info').html('<ons-row><ons-col><img src="https://d25jl8yaav4s0u.cloudfront.net/images/'+data.data.current.weather.ic+'.png" class="rounded-icon" width="48px"></ons-col><ons-col><div>Temperature</div><div>'+data.data.current.weather.tp+'&#8451;</div></ons-col><ons-col><div>Humidity</div><div>'+data.data.current.weather.hu+'</div></ons-col><ons-col><div>US AQI</div><div>'+data.data.current.pollution.aqius+'</div></ons-col></ons-row><div class="ai-tip"><ons-row><ons-col width="50px"><img src="./img/exclamation-mark.png" width="40px" /></ons-col><ons-col> Lorem ipsum dolor sit seorwd amet, consectetur adipiscing elit.</ons-col></ons-row></div>')
       $('.w-location').text(data.data.city+", "+data.data.state+", "+data.data.country);
     },
     error: function(e) {

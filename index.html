@@ -26,13 +26,13 @@
         <ons-tabbar swipeable position="auto">
           <ons-tab page="dashboard.html" label="Dashboard" icon="ion-speedometer, material:md-home" active>
           </ons-tab>
+          <ons-tab page="updates.html" label="Updates" icon="ion-flash"  badge="2" active-icon="ion-flash">
+          </ons-tab>
+          <ons-tab page="todo.html" label="To Do" icon="ion-ios-checkmark-outline"  badge="3" active-icon="on-ios-checkmark-outline">
+          </ons-tab>
           <ons-tab page="report.html" label="Reports" icon="ion-ios-pulse" active-icon="ion-ios-pulse">
           </ons-tab>
-          <ons-tab page="tab2.html" label="To Do" icon="ion-ios-checkmark-outline"  badge="7" active-icon="md-face">
-          </ons-tab>
-          <ons-tab page="tab2.html" label="Triggers" icon="ion-flash" active-icon="md-face">
-          </ons-tab>
-          <ons-tab page="tab2.html" label="Profile" icon="ion-ios-person" active-icon="ion-ios-person">
+          <ons-tab page="profile.html" label="Profile" icon="ion-ios-person" active-icon="ion-ios-person">
           </ons-tab>
         </ons-tabbar>
       </ons-page>
@@ -49,8 +49,68 @@
                 <div class="title"><ons-icon icon="fa-map-marker" size="20px"></ons-icon> <span class="w-location">Fetching weather info...</span></div>
                 <div class="content weather-info" style="text-align: center; margin-top:30px;">
                   
+
+                
+
                 </div>
             </ons-card>
+            <ons-card>
+              <div class="content" style="text-align: center;">
+                <ons-row>
+                  <ons-col>
+                    <div class="prop-name">Your last PEF recorded</div>
+                    <div class="prop-val">Good</div>
+                  </ons-col>
+
+                  <ons-col>
+                      <div class="prop-name">Symptoms detected</div>
+                      <div class="prop-val">0</div>
+                    </ons-col>
+
+                  <ons-col>
+                      <div class="prop-name">Use of Rescue Inhaler</div>
+                      <div class="prop-val">0</div>
+                    </ons-col>
+                </ons-row>
+                <div class="ai-tip">
+                    <ons-row>
+                    <ons-col width="50px">
+                        <img src="./img/lifeline-in-a-heart-outline.png" width="40px" />
+                    </ons-col>
+                    <ons-col> Lorem ipsum dolor sit seorwd amet, consectetur adipiscing elit.</ons-col>
+                  </ons-row>
+                </div>
+              </div>
+            </ons-card>
+
+            <ons-card>
+                <div class="content" style="text-align: center;">
+                  <ons-row>
+  
+                      <ons-col>
+                          <div class="prop-name">Breathing Rate</div>
+                          <div class="prop-val">20 bpm</div>
+                        </ons-col>
+                    <ons-col>
+                      <div class="prop-name">Steps Detected</div>
+                      <div class="prop-val">11514</div>
+                    </ons-col>
+  
+                    <ons-col>
+                        <div class="prop-name">Sleeping Time</div>
+                        <div class="prop-val">8 hours</div>
+                      </ons-col>
+                  </ons-row>
+                  <div class="ai-tip">
+                      <ons-row>
+                      <ons-col width="50px">
+                          <img src="./img/appreciation.png" width="40px" />
+                      </ons-col>
+                      <ons-col> Lorem ipsum dolor sit seorwd amet, consectetur adipiscing elit.</ons-col>
+                    </ons-row>
+                  </div>
+                </div>
+              </ons-card>
         </ons-page>
       </template>
       
@@ -60,16 +120,16 @@
           <ons-toolbar  modifier="transparent">
             <div class="center" style="background-color: #fff;">
                 <ons-segment id="segment" tabbar-id="segments" style="width:250px;">
+                  <button>Progress</button>
                   <button>PEF</button>
-                  <button>Symptoms</button>
                   <button>Triggers</button>
                 </ons-segment>
             </div> 
           </ons-toolbar>
 
           <ons-tabbar id="segments">
-            <ons-tab page="pef.html" active></ons-tab>
-            <ons-tab page="sym.html"></ons-tab>
+            <ons-tab page="progress.html" active></ons-tab>
+            <ons-tab page="pef.html"></ons-tab>
             <ons-tab page="trig.html"></ons-tab>
           </ons-tabbar>
         </ons-page>
@@ -85,28 +145,76 @@
             </ons-fab>
         </ons-page>
       </template>
-      <template id="sym.html">
-        <ons-page id="todo-page">
-          <p style="text-align: center;">
-            This is the second page.
-          </p>
-        </ons-page>
+      <template id="progress.html">
+          <ons-page id="progress-page">
+              <div style="padding: 10px; background-color: #fff;">
+                  <canvas id="myChart1" style="margin-top:5px;"></canvas>
+              </div>
+              <ons-fab position="bottom right">
+                  <ons-icon icon="md-plus"></ons-icon>
+                </ons-fab>
+            </ons-page>
       </template>
       <template id="trig.html">
         <ons-page id="todo-page">
           <p style="text-align: center;">
-            This is the second page.
+            Work in progress.
           </p>
         </ons-page>
       </template>
 
-      <template id="tab2.html">
-        <ons-page id="todo-page">
+      <template id="updates.html">
+        <ons-page id="updates-page">
+            <ons-card>
+                <ons-row>
+                  <ons-col width="55px"><img src="./img/factory.png" width="40px"></ons-col>
+                  <ons-col><div><strong>Pollution alert</strong></div><div>You are in a high pollution zone. Please wear a mask or avoid roaming outside.</div></ons-col>
+                </ons-row>
+              </ons-card>
+
+          <ons-card>
+              <ons-row>
+                <ons-col width="55px"><img src="./img/wind.png" width="40px"></ons-col>
+                <ons-col><div><strong>Measured your peak flow today?</strong></div><div>Tap to enter you peak flow reading.</div></ons-col>
+              </ons-row>
+            </ons-card>
+        </ons-page>
+      </template>
+
+      <template id="profile.html">
+        <ons-page id="profile-page">
           <p style="text-align: center;">
-            This is the second page.
+            Work in progress
           </p>
         </ons-page>
       </template>
 
+      <template id="todo.html">
+          <ons-page id="todo-page">
+              <ons-card>
+                  <ons-row>
+                    <ons-col width="55px"><img src="./img/clipboard.png" width="40px"></ons-col>
+                    <ons-col><div><strong>Questionnaire: Symtoms</strong></div><div>Please provide your response to better track you.</div></ons-col>
+                  </ons-row>
+                </ons-card>
+
+                <ons-card>
+                    <ons-row>
+                      <ons-col width="55px"><img src="./img/inhalator.png" width="40px"></ons-col>
+                      <ons-col><div><strong>Medication</strong></div><div>Please take xyz pill now.</div></ons-col>
+                    </ons-row>
+                  </ons-card>
+
+                <ons-card>
+                    <ons-row>
+                      <ons-col width="55px"><img src="./img/clipboard.png" width="40px"></ons-col>
+                      <ons-col><div><strong>Questionnaire: Triggers</strong></div><div>Please provide your response to better track you.</div></ons-col>
+                    </ons-row>
+                  </ons-card>
+  
+            
+  
+          </ons-page>
+        </template>
 </body>
 </html>

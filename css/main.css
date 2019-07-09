@@ -3,3 +3,15 @@ body {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
  }
+
+ .prop-name{
+    font-size: 11px;
+    text-transform:uppercase;
+ }
+ .prop-val{
+    font-size: 16px;
+    color: #046a91;
+ }
+ .ai-tip{
+    background-color:#eee; margin-top: 15px;padding:10px;text-align: left;
+ }
